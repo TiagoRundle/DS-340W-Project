@@ -1,0 +1,29 @@
+# macOS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local research history
+archive_local/
+
+# Original GazeBase dataset
+data/raw/
+data/GazeBase_v2_0/
+
+# Generated processed datasets
+replication/data/*.csv
+exploration/data/*.csv
+proposed_method/data/*.csv
+
+# The fixed cohort is small and needed for reproducibility
+!proposed_method/data/cohort_ids.csv
+
+# Midterm presentation:
+# final proposed-method results stay local until after the midterm
+proposed_method/results/*.csv
