@@ -228,8 +228,7 @@ def parse_args() -> argparse.Namespace:
         default=os.path.join(
             project_root,
             "data",
-            "processed",
-            "harezlak_gazebase_r1_24sub_29pt.csv",
+            "replication_features_100point.csv", 
         ),
     )
     parser.add_argument("--runs", type=int, default=10)

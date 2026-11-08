@@ -465,7 +465,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output",
-        default=os.path.join(project_root, "data", "processed", "harezlak_gazebase_r1_24sub_29pt_v2.csv"),
+        default=os.path.join(project_root, "data", "replication_features_100point.csv"),
     )
     parser.add_argument("--round", type=int, default=1)
     parser.add_argument("--subjects", type=int, default=24)
