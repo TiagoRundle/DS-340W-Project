@@ -95,20 +95,17 @@ After development is frozen, all Round-1 S1 + S2 data are used for fitting and R
 .
 ├── replication/
 │   ├── README.md
-│   └── src/
+│   ├── src/
+│   └── data/          # created after extracting reproduction_data.zip
 ├── exploration/
 │   ├── README.md
 │   ├── results/
-│   └── src/
+│   ├── src/
+│   └── data/          # created after extracting reproduction_data.zip
 ├── proposed_method/
 │   ├── README.md
-│   ├── data/
-│   └── src/
-│       ├── build_datasets.py
-│       ├── evaluate_comparison.py
-│       ├── evaluate_development_baseline.py
-│       ├── evaluate_development_comparison.py
-│       └── feature_engineering.py
+│   ├── src/
+│   └── data/          # created after extracting reproduction_data.zip
 ├── data/
 │   └── gazebase_manifest.csv
 ├── requirements.txt
@@ -121,27 +118,31 @@ After development is frozen, all Round-1 S1 + S2 data are used for fitting and R
 
 Use GitHub's **Code → Download ZIP** option or clone the repository.
 
-### 2. Download the processed reproduction data
+### 2. Extracting the reproduction data
 
-The raw GazeBase dataset is several gigabytes and is not stored in this repository.
+The repository does not initially contain `data/` folders inside `replication/`, `exploration/`, or `proposed_method/`. These folders and their processed CSV files are created when the reproduction-data ZIP is extracted.
 
-A processed reproduction package is available from the GitHub release:
+Download `reproduction_data.zip` from the `v1.0-reproduction` GitHub Release.
 
-`v1.0-reproduction` → `reproduction_data.zip`
+The ZIP should be extracted directly into the root of the downloaded repository, which is the same folder that contains `README.md`, `requirements.txt`, `replication/`, `exploration/`, and `proposed_method/`.
 
-Release page:
+#### Windows
 
-`https://github.com/TiagoRundle/DS-340W-Project/releases/tag/v1.0-reproduction`
+Place `reproduction_data.zip` in the repository root and run:
 
-The ZIP is approximately 192 MB compressed.
-
-SHA-256:
-
-```text
-7b3234d4cb121336e876ac73787794b5cbad5b43751df0dfa5a164c0bf5dc678
+```powershell
+python -c "import zipfile; zipfile.ZipFile('reproduction_data.zip').extractall('.')"
 ```
 
-Extract `reproduction_data.zip` **into the repository root**. After extraction, files should appear directly under:
+#### macOS / Linux
+
+Place `reproduction_data.zip` in the repository root and run:
+
+```bash
+python3 -c "import zipfile; zipfile.ZipFile('reproduction_data.zip').extractall('.')"
+```
+
+After extraction, the following folders should exist:
 
 ```text
 replication/data/
@@ -149,7 +150,27 @@ exploration/data/
 proposed_method/data/
 ```
 
-At least approximately 1 GB of free disk space is recommended for extraction and generated result files.
+For example, the following files should now be present:
+
+```text
+replication/data/replication_features_100point.csv
+
+exploration/data/development.csv
+exploration/data/test.csv
+exploration/data/validation.csv
+
+proposed_method/data/cohort_ids.csv
+proposed_method/data/r1_motion_features.csv
+proposed_method/data/r1_s1_classical_features.csv
+proposed_method/data/r1_s2_classical_features.csv
+proposed_method/data/r1_saccade_features.csv
+proposed_method/data/r2_motion_features.csv
+proposed_method/data/r2_s1_classical_features.csv
+proposed_method/data/r2_s2_classical_features.csv
+proposed_method/data/r2_saccade_features.csv
+```
+
+These processed datasets are sufficient to reproduce the reported model-evaluation results. The full raw GazeBase dataset is not required unless the user wants to rebuild the feature datasets from the original eye-tracking recordings.
 
 ### 3. Create a clean Python environment
 
