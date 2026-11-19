@@ -151,8 +151,6 @@ proposed_method/data/
 
 At least approximately 1 GB of free disk space is recommended for extraction and generated result files.
 
-> **Penn State lab note:** network/home drives may have limited storage quotas. If needed, extract the repository and reproduction data to a local temporary directory such as `%TEMP%`.
-
 ### 3. Create a clean Python environment
 
 The final clean-machine test was performed with **Python 3.13.7**.
