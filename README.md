@@ -94,15 +94,12 @@ After development is frozen, all Round-1 S1 + S2 data are used for fitting and R
 ```text
 .
 ├── replication/
-│   ├── data/
 │   └── src/
 ├── exploration/
-│   ├── data/
 │   ├── results/
 │   └── src/
 ├── proposed_method/
 │   ├── data/
-│   ├── results/
 │   └── src/
 │       ├── build_datasets.py
 │       ├── evaluate_comparison.py
